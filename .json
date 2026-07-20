@@ -1,0 +1,24 @@
+
+
+{
+  "name": "search_region_sightseeing",
+  "description": "Searches the web for landmarks, sightseeing views, and itineraries based on region and trip duration.",
+  "input_schema": {
+    "type": "object",
+    "properties": {
+      "region": {
+        "type": "string",
+        "description": "The specific region, city, or country to search for (e.g., 'Jerusalem, Israel')."
+      },
+      "days": {
+        "type": "integer",
+        "description": "The amount of days the person is staying in the region."
+      },
+      "interests": {
+        "type": "string",
+        "description": "Optional interests like 'history', 'nature', 'food', or 'family'."
+      }
+    },
+    "required": ["region", "days"]
+  }
+}
