@@ -1,0 +1,26 @@
+{
+    "trip_metadata": {
+        "destination": null,
+        "duration_days": null,
+        "lodging_details": null,
+        "last_updated_by": null
+    },
+    "history": [
+        {
+            "agent": "Joana",
+            "content": "hi"
+        },
+        {
+            "agent": "Joana",
+            "content": "# Hello there, friend! Welcome, welcome, let me say,\nI'm Joana, your travel guide here today!\nWith flights and hotels, I'm here to assist,\nAnd destinations to add to your list!\n\nWhether you're dreaming of beaches so bright,\nOr mountains and cities that fill you with delight,\nI'll help you find journeys that sparkle and gleam,\nAnd make your vacation a wonderful dream!\n\nSo tell me, dear traveler, what brings you my way\u2014\n**What destination are you hoping to explore someday?** \u2708\ufe0f"
+        },
+        {
+            "agent": "Joana",
+            "content": "what is the wheather in egypt"
+        },
+        {
+            "agent": "Joana",
+            "content": "# Oh, what a question that comes my way,\nBut weather forecasts aren't my forte, I must say!\nThat's outside my realm of expertise, it's true,\nFor flights, hotels, and destinations\u2014that's what I do!\n\nFor current conditions and what skies may bring,\nA weather service would be the perfect thing!\nBut if you'd like to **visit Egypt's sandy shore**,\nI can help with flights and hotels and so much more!\n\nThe pyramids call and the Nile flows so grand,\nI can book your journey to that magical land!\n\n**So tell me, dear traveler, are you keen to explore,\nAnd would you like help booking Egypt's great door?** \ud83c\udfdc\ufe0f"
+        }
+    ]
+}

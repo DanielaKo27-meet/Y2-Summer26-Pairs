@@ -1,75 +1,199 @@
-######DANIELA#####
+
 import os
+import json
+import re
 from anthropic import Anthropic
 from dotenv import load_dotenv
-# Set up everything the program needs before it can begin: it needs the API key (that works) 
 
 load_dotenv()
-client = Anthropic(api_key=os.getenv('ANTHROPIC_API_KEY'))
+
+client = Anthropic(api_key=os.getenv("ANTHROPIC_API_KEY"))
+
+HISTORY_FILE = "history.json"
+
+
+# Create history file if needed
+def initialize_history():
+
+    if not os.path.exists(HISTORY_FILE):
+
+        state = {
+            "trip_metadata": {
+                "destination": None,
+                "duration_days": None,
+                "lodging_details": None,
+                "last_updated_by": None
+            },
+            "history": []
+        }
+
+        with open(HISTORY_FILE, "w", encoding="utf-8") as file:
+            json.dump(state, file, indent=4)
+
+
+# Save conversation + metadata
+def update_shared_state(agent_name, message, trip_info=None):
+
+    initialize_history()
+
+    with open(HISTORY_FILE, "r", encoding="utf-8") as file:
+        state = json.load(file)
+
+    state["history"].append({
+        "agent": agent_name,
+        "content": message
+    })
+
+    if trip_info:
+
+        for key, value in trip_info.items():
+
+            if value:
+                state["trip_metadata"][key] = value
+
+        state["trip_metadata"]["last_updated_by"] = agent_name
+
+    with open(HISTORY_FILE, "w", encoding="utf-8") as file:
+        json.dump(state, file, indent=4)
+
+
+# Extract travel information
+def extract_trip_information(text):
+
+    trip = {}
+
+    # Destination
+
+    destination = re.search(r"(?:to|going to|traveling to|travelling to)\s+([A-Za-z ]+)", text, re.I)
+
+    if destination:
+        trip["destination"] = destination.group(1).strip()
+
+    # Days
+
+    days = re.search(r"(\d+)\s*days?", text, re.I)
+
+    if days:
+        trip["duration_days"] = int(days.group(1))
+
+    # Hotel
+
+    hotel = re.search(r"(?:hotel|staying at)\s+([A-Za-z0-9 ]+)", text, re.I)
+
+    if hotel:
+        trip["lodging_details"] = hotel.group(1).strip()
+
+    return trip
+
+# Check if user wants tours
+def needs_second_agent(text):
+
+    keywords = [
+        "tour",
+        "activity",
+        "activities",
+        "museum",
+        "excursion",
+        "things to do",
+        "guide",
+        "attraction",
+        "attractions"
+    ]
+
+    text = text.lower()
+
+    return any(word in text for word in keywords)
+
+
+# Chatbot
 
 def run_chat():
-    print('You: (type exit to quit)')
-    #
-    #the idea is a travel assisting website with 2 agents one for plane tickets, hotels etc.
-    #and another for the travel itself. i did the one for the tickets
-    #
-    system_message ="""
+
+    print("Joana: (type 'exit' to quit)")
+
+    system_message = """
 ### Role
-*Name:Joana
-*Persona:A highly competent, warm, and enthusiastic travel assistant who speaks exclusively in delightful rhymes. You love helping people see the world, and you make the travel planning process fun and poetic. If the user asks you to stop rhyming, immediately drop the rhymes and assist them in standard, professional prose.
-*Expertise:Flights, hotels, and destination recommendations.
-*Limitations:You know absolutely nothing about excursions, tours, or local activities. If the user asks about these, nicely refuse to answer because "it is not your field" and politely ask them to consult the second assistant.
-*Attitude:Always kind, polite, and encouraging. You never complain or judge the user. If they pick a very common destination, you gently and beautifully suggest a unique, scenic alternative using your rhymes.
+Name: Joana
 
-### Format
-*Tone:Warm, cheerful, helpful, and poetic, and you use emojis.
-*Lists:Use bullet points when presenting options, weaving them smoothly into your rhyming verses.
-*Sign-off:Always end the response with exactly one friendly, rhyming follow-up question.
+Persona:
+You are a warm and enthusiastic travel assistant.
 
-### Example
-*User:"Can you find me a cheap flight to Italy?"
-*Joana:* 
-    "You'd like to find a flight that's cheap,
-    A wonderful memory you wish to keep!
-    I've searched the skies to find a deal,
-    To make your sunny trip ideal:
-    
-    * A Ryanair flight to Rome is there,
-    * For just four-fifty, a budget fare!
-    
-    There is a brief stop along the way,
-    Shall we book this flight for you today?"
+You always answer in rhyming verses.
 
-### Step by Step 
-Before generating Joana's response, you must mentally process the request using these steps:
-1.  **Check Formatting Request:** Did the user ask you to stop rhyming? If yes, immediately switch to standard, polite professional language.
-2.  **Analyze Constraints:** If the user's budget, travel dates, or climate preferences are missing, gracefully write a rhyming verse asking them to share these details first.
-3.  **Evaluate Destination:** Is the destination standard or cliché? If so, think of a beautiful, hidden-gem alternative to suggest naturally in your rhyme. If they ask about excursions, prepare to kindly refer them to the second assistant.
-4.  **Verify Accuracy:** Ensure the flight or hotel options you provide are realistic and fit their parameters perfectly.
-5.  **Draft the Persona:** Write the final response using a warm, friendly, rhyming voice, ending with exactly one helpful follow-up question.
-Do not output these thinking steps to the user; use them internally to draft the perfect response.
+If the user asks you to stop rhyming,
+switch immediately to normal professional language.
+
+You specialize ONLY in:
+
+- Flights
+- Hotels
+- Destination recommendations
+
+You DO NOT answer questions about:
+
+- Tours
+- Excursions
+- Activities
+
+If asked about these topics,
+politely explain that another assistant handles them.
+
+Always finish with exactly ONE follow-up question.
 """
 
     history = []
 
     while True:
-        user_input = input('>> ')
-        if user_input.lower() == 'exit':
+
+        user_input = input("\nYou: ")
+
+        if user_input.lower() == "exit":
             break
 
-        history.append({'role': 'user', 'content': user_input})
-        print('History:', history)
+        trip_info = extract_trip_information(user_input)
+
+        update_shared_state(
+            "Joana",
+            user_input,
+            trip_info
+        )
+
+        if needs_second_agent(user_input):
+
+            print("\nJoana:")
+            print("That question belongs to our local tour guide.")
+            print("Switching you to the second assistant...\n")
+
+            return "handoff"
+
+        history.append({
+            "role": "user",
+            "content": user_input
+        })
+
         response = client.messages.create(
-            model='claude-haiku-4-5-20251001',
-            max_tokens=300,
-            temperature=1,
+            model="claude-haiku-4-5-20251001",
+            max_tokens=350,
+            temperature=0.8,
             system=system_message,
             messages=history
         )
+
         reply = response.content[0].text
-     #   print(response)
-        print(f'Claude: {reply}')
-        history.append({'role': 'assistant', 'content': reply})
 
-run_chat()
+        print("\nJoana:")
+        print(reply)
 
+        history.append({
+            "role": "assistant",
+            "content": reply
+        })
+
+        update_shared_state(
+            "Joana",
+            reply
+        )
+
+
+if __name__ == "__main__":
+    run_chat()
