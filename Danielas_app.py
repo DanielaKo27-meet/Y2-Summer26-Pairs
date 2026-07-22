@@ -286,3 +286,10 @@ if __name__ == "__main__":
 #stop_reason == "tool_use" check
 #When the user asks to save or compare prices, Claude doesn't just reply with text—it sets stop_reason to "tool_use".
 #Your Python code catches this, runs export_price_comparison(), saves the file, and hands the result back to Claude so Joana can write her final rhyming message.
+
+
+
+
+
+
+
