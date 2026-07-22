@@ -1,9 +1,9 @@
 {
     "trip_metadata": {
-        "destination": null,
-        "duration_days": null,
+        "destination": "germany on the",
+        "duration_days": 10,
         "lodging_details": null,
-        "last_updated_by": null
+        "last_updated_by": "Joana"
     },
     "history": [
         {
@@ -21,6 +21,78 @@
         {
             "agent": "Joana",
             "content": "# Oh, what a question that comes my way,\nBut weather forecasts aren't my forte, I must say!\nThat's outside my realm of expertise, it's true,\nFor flights, hotels, and destinations\u2014that's what I do!\n\nFor current conditions and what skies may bring,\nA weather service would be the perfect thing!\nBut if you'd like to **visit Egypt's sandy shore**,\nI can help with flights and hotels and so much more!\n\nThe pyramids call and the Nile flows so grand,\nI can book your journey to that magical land!\n\n**So tell me, dear traveler, are you keen to explore,\nAnd would you like help booking Egypt's great door?** \ud83c\udfdc\ufe0f"
+        },
+        {
+            "agent": "Joana",
+            "content": "hallo"
+        },
+        {
+            "agent": "Joana",
+            "content": "hi"
+        },
+        {
+            "agent": "Joana",
+            "content": "Hello there, my friend! \u2728\ud83c\udf0d\n\nWelcome, welcome, what a delight,\nTo meet you here on this travel night!\nI'm Joana, your assistant so keen,\nReady to help you chase a wanderlust dream!\n\nWhether you're seeking flights through the air,\nA cozy hotel beyond compare,\nOr a destination both hidden and rare,\nI'm here to assist with the utmost care! \ud83c\udfab\u2708\ufe0f\n\nSo tell me, dear traveler, what brings you my way?\nAre you planning an adventure for some future day? \ud83d\ude0a"
+        },
+        {
+            "agent": "Joana",
+            "content": "i want to go somewer dont know where"
+        },
+        {
+            "agent": "Joana",
+            "content": "Oh, how wonderful! A spirit so free,\nSeeking adventure, wherever it'll be! \ud83c\udf1f\u2708\ufe0f\n\nBut before I can help you explore and roam,\nAnd find you the perfect place far from home,\nI must gather some details, if you don't mind,\nTo craft the ideal trip, tailored and kind!\n\nPlease share with me, if you would be so sweet:\n\n* **When** are you hoping to take to the skies?\n* **How long** will you travel before you arise?\n* **What's your budget** for flights, if you please?\n* **What weather** calls to you\u2014warmth or cool breeze? \ud83c\udf1e\u2744\ufe0f\n* **Any preference** for culture or scene\u2014\nMountains, beaches, cities, or something between?\n\nOnce you paint me this picture, so vivid and bright,\nI'll find you a gem that feels perfectly right! \ud83d\udc8e\n\nSo tell me, dear wanderer, what time frame have you in mind? \ud83d\uddd3\ufe0f"
+        },
+        {
+            "agent": "Joana",
+            "content": "i whant a flight to germany on the 30 of ogust"
+        },
+        {
+            "agent": "Joana",
+            "content": "Oh, Germany in August, what a splendid choice! \ud83c\udde9\ud83c\uddea\u2708\ufe0f\nA land of castles where hearts will rejoice!\n\nBut before I can search through the skies up above,\nAnd find you a flight to this country you'll love,\nI need just a few details more, if I may,\nTo make your adventure perfectly play!\n\nPlease tell me, dear traveler, these things if you please:\n\n* **Where are you flying from?** (Your home city or town?)\n* **What's your budget** for this flight, up or down?\n* **How long** will you stay in this wonderful place?\n* **Do you prefer** a quick trip or a leisurely pace? \ud83c\udff0\n\nOnce I have these details, so clear and so bright,\nI'll search all the options and find you the right flight!\n\nSo tell me, my friend, which city calls you back home? \ud83c\udfe0"
+        },
+        {
+            "agent": "Joana",
+            "content": "tel aviv, 1000 dolars, 10 days"
+        },
+        {
+            "agent": "Joana",
+            "content": "Oh, Tel Aviv to Germany, what joy! \ud83c\udf1f\u2708\ufe0f\nTen days of adventure without any ploy!\nA thousand dollars is your budget so grand,\nLet me search for the flights across sea and land!\n\nFrom Tel Aviv on the 30th of August you'll go,\nTo Germany's wonders, a magnificent show!\nBut one final detail I must ask of you true,\n**Which German city** calls out to you? \ud83c\udde9\ud83c\uddea\n\n* **Berlin** - vibrant, historic, and free!\n* **Munich** - charming, with beer and grand spree!\n* **Frankfurt** - bustling, a traveler's delight!\n* **Hamburg** - coastal, with harbor so bright!\n\nOr perhaps another city that speaks to your soul?\nOnce you tell me, I'll make your adventure whole! \u2728\n\nWhich German gem would you like to explore? \ud83c\udfdb\ufe0f"
+        },
+        {
+            "agent": "Joana",
+            "content": "use tool"
+        },
+        {
+            "agent": "Joana",
+            "content": "Oh, my dear friend, I appreciate your request with glee! \ud83c\udfad\u2728\n\nBut I must confess, with honesty true,\nThe tool I possess has a specific use through and through\u2014\nIt exports and compares flights in a CSV sheet,\nTo help you see prices and make choices so neat! \ud83d\udcca\n\nHowever, to use it, I first need from you,\n**Actual flight options** with prices that are true!\nRight now, we're still gathering details, you see,\nBefore I can search and find flights for thee! \u2708\ufe0f\n\nSo let me ask once more, with hope in my heart,\n**Which German city** shall we make our start? \ud83c\udde9\ud83c\uddea\n\n* Berlin, Munich, Frankfurt, or Hamburg so fine?\nOnce you choose, I'll search the skies and make them align!\n\nWhich beautiful German destination calls to you? \ud83c\udff0"
+        },
+        {
+            "agent": "Joana",
+            "content": ""
+        },
+        {
+            "agent": "Joana",
+            "content": "use tool on those flights: 30/8 germany for 40$, 31/8 gegmany for 300$, paris 14/8 for 400$"
+        },
+        {
+            "agent": "Joana",
+            "content": "I'd love to help you save those flights in a comparison file! \ud83c\udf89\n\nHowever, I need just a tiny bit more information to make this work perfectly:\n\n* For each flight, I need to know the **airline name** (like Lufthansa, Ryanair, Air France, etc.)\n* I also need the **arrival city** for each flight (you've mentioned departures, but where does each flight land?)\n\nOnce you share these details with a rhyme so sweet,\nI'll export your options and make the task complete! \u2728\n\nCould you provide the airline names and arrival destinations for each of these three flights? \ud83c\udf0d"
+        },
+        {
+            "agent": "Joana",
+            "content": "elal, arab emerats,canedian air lines"
+        },
+        {
+            "agent": "Joana",
+            "content": "Thank you for sharing those airline names with such grace! \ud83d\udeeb\n\nNow I have the airlines lined up in a row,\nBut I need one more detail before we go:\n\nFor each of these flights, I must kindly ask\u2014\nWhere will they land? It's an important task!\n\n* The **30/8 Germany flight with El Al** \u2014 does it arrive in Germany, or somewhere else?\n* The **31/8 Germany flight with Arab Emirates** \u2014 same question, my dear!\n* The **14/8 Paris flight with Canadian Airlines** \u2014 does it land in Paris, or perhaps another place?\n\nOnce you tell me where each journey will end,\nI'll export these options, my wonderful friend! \u2728\n\nWhich cities are the arrival destinations for each flight? \ud83c\udf0d"
+        },
+        {
+            "agent": "Joana",
+            "content": "tel aviv all of them"
+        },
+        {
+            "agent": "Joana",
+            "content": "Wonderful! Your flights are saved and ready to view, \ud83d\udcca\nA spreadsheet comparison created just for you!\n\n* El Al on 30/8 from Germany for just $40\u2014what a steal!\n* Arab Emirates on 31/8 from Germany for $300\u2014a solid deal!\n* Canadian Airlines on 14/8 from Paris for $400\u2014a premium fare!\n\nYour options are now in a CSV so neat,\nWhich of these Tel Aviv journeys sounds most sweet? \u2708\ufe0f"
         }
     ]
 }
